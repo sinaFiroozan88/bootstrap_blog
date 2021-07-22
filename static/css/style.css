@@ -1,0 +1,82 @@
+.body {
+    font-family: adobe arabic;
+    font-size: 23px;
+    margin: 0;
+    direction: rtl;
+    text-align: right;
+}
+
+.hr-nav {
+    background-color: #eeeeee;
+    color: black;
+}
+
+.hr-img {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hr-ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    color: black;
+}
+
+.hr-li {
+    display: inline-block;
+    text-align: right;
+    font-size: 33px;
+}
+
+.hr-a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px 20px;
+}
+
+.hr-a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 765px) {
+    .hr-img {
+        display: block;
+    }
+    .hr-ul {
+        display: none;
+    }
+    .hr-li {
+        display: block;
+        border: 1px solid white;
+    }
+}
+
+h4,
+.card-title {
+    text-align: right;
+}
+
+.ad {
+    position: unset;
+}
+
+.hr-a:hover {
+    color: black;
+    font-size: 38px;
+    transition: all 0.6s;
+}
+
+.con-btn {
+    direction: ltr;
+    text-align: left;
+}
+@media screen and (min-width: 1160px) {
+    .card-s, .card-t {
+        width: 400px !important
+    }
+}

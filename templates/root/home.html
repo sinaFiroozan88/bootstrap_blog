@@ -1,0 +1,47 @@
+{% extends 'root/base.html' %}
+{% load static %}
+
+
+{% block col-8 %}
+            <div class="my-5 animate__animated animate__backInUp">
+                <h3 class=" ">وبلاگ آموزشی سینا</h3>
+            </div>
+            {% for post in posts %}
+            <div class="card mb-4 wow animate__animated animate__lightSpeedInRight" data-wow-delay="0.5s">
+                <img src="{{ post.image.url }}" class="card-img-top" style="max-height: 410px">
+                <div class="card-body ">
+                    <h4 class="card-title ">{{ post.title }}</h4>
+                    <p class="card-text wow animate__animated animate__zoomIn"
+                       style="font-size: 17px;direction: rtl;text-align: right; ">{{ post.snippet }}</p>
+                    <a href="blog.html" class="btn btn-info btns" data-wow-delay="0.2s">ادامه ی مطلب</a>
+                </div>
+                <div class="card-footer text-muted" id="{{ post.id }}" style="font-size: 16px; ">
+                </div>
+            </div>
+            {% endfor %}
+            <ul class="pagination justify-content-center" style="padding: 1px; font-size: 17px;color: lightgray; ">
+                <li class="page-item ">
+                    <a class="page-link "
+                       style="color: rgb(109, 109, 109);border-color: rgb(117, 117, 117);border-radius: 0 10px 10px 1px;border-left: none; ">&larr;
+                        قبلی </a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link "
+                       style="color: rgb(109, 109, 109);border-color: rgb(117, 117, 117);border-radius: 0; ">1</a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link "
+                       style="color: rgb(109, 109, 109);border-color: rgb(117, 117, 117);border-radius: 0; ">2</a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link "
+                       style="color: rgb(109, 109, 109);border-color: rgb(117, 117, 117);border-radius: 0;border-radius: 10px 0 0 10px; ">&rarr;
+                        بعدی </a>
+                </li>
+            </ul>
+{% endblock %}
+{% block new_script %}
+{% for post in posts %}
+    $("#{{ post.id }}").text(gregorian_to_jalali({{ post.published_date.year }}, {{ post.published_date.month }}, {{ post.published_date.day }}));
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>sina blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/all.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+</head>
+
+<body class="body" style="overflow-x: hidden;">
+<nav class="hr-nav fixed-top wow animate__animated animate__fadeIn"
+     style="direction: rtl;text-align: right;font-size: 35px;" data-wow-delay="0.6s">
+    <img class="hr-img" src="{% static 'img/header-icon.png' %}"/>
+    <ul class="hr-ul">
+        <li class="hr-li">
+            <a class="hr-a " href="index.html ">خانه</a>
+        </li>
+        <li class="hr-li">
+            <a class="hr-a " href="#">ورود</a>
+        </li>
+        <li class="hr-li">
+            <a class="hr-a " href="#">ثبت نام</a>
+        </li>
+        <li class="hr-li">
+            <a class="hr-a " href="contact.html ">تماس با ما</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-8">
+            {% block col-8 %}
+            {% endblock %}
+        </div>
+        <div class="col-md-4" style="margin-top: 80px;">
+            <div class="wow card my-5 animate__animated animate__zoomInDown card-s"
+                 style="position: fixed;width: 300px;"
+                 data-wow-delay="0.6s">
+                <h5 class="card-header">جستجو</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="جستجو کنید...">
+                        <span class="input-group-btn mr-1">
+                                <button class="btn btn-secondary btn-block" type="button"
+                                        style="width: 60px;height: 40px;"><img src="{% static 'img/search.png' %}"
+                                                                               style="width: 33px;margin: auto;padding: 0 0 0 4px;"></button>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="wow card my-5 animate__animated animate__zoomInDown card-t"
+                 style="font-size: 16px;position: fixed;width: 300px;" data-wow-delay="0.6s">
+                <h5 class=" card-header ">دسته بندی</h5>
+                <div class="card-body ">
+                    <div class="row ">
+                        <ul class="list-unstyled mb-0 pl-3 pr-3 " style="text-align: right; ">
+                            <li><a href="#"> آموزش Html </a></li>
+                            <li><a href="#"> آموزش wordpres </a></li>
+                            <li><a href="#"> آموزش windows </a></li>
+                            <li><a href="#"> آموزش Bootstap </a></li>
+                        </ul>
+                        <ul class="list-unstyled mb-0 " style="text-align: right; ">
+                            <li><a href="#"> آموزش css </a></li>
+                            <li><a href="#"> آموزش JQuery </a></li>
+                            <li><a href="#"> آموزش angular </a></li>
+                            <li><a href="#"> آموزش php </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-light " style="padding: 40px 0; ">
+    <div class="container ">
+        <p class="m-0 text-center text-dark " style="font-size: 20px; ">طراحی شده توسط سینا فیروزان</p>
+    </div>
+</footer>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/all.js' %}"></script>
+<script src="{% static 'js/fontawesome.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/persian-date-convert.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("html").animate({scrollTop: 0})
+        $('.hr-img').click(function () {
+            $('.hr-ul').slideToggle();
+        });
+    });
+    $(window).resize(function () {
+        if ($(this).width() > 768) {
+            $('.hr-ul').show();
+        } else {
+            $('.hr-ul').hide();
+        }
+    });
+    new WOW().init();
+    const logo = document.querySelector(".btns");
+    logo.addEventListener("mouseover", function () {
+        logo.classList.add("animate__animated", "animate__bounce");
+    })
+    {% block new_script %}
+    {% endblock %}
+</script>
+
+</body>
+
+</html>
